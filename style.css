@@ -1,0 +1,12 @@
+#container{
+    border: solid 1px grey;
+    display: flex;
+    flex-wrap: wrap;
+    width: 630px;
+}
+
+#container > div{
+    border: solid 1px black;
+    width: 38px;
+    height: 38px;
+}
