@@ -12,12 +12,26 @@
 
         const body = document.querySelector("body");
         const container = document.querySelector("#container")
+        const button = document.createElement("button");
+        button.textContent = "restart";
+        body.insertBefore(button, container);
 
-        for(let i = 1; i <= 256; i++){
-            const div = document.createElement("div");
-            container.appendChild(div);
-            div.addEventListener("mouseenter", e => div.style.backgroundColor = "grey");
-        }
+        let horizontalSize;
+        let verticalSize;
+        let gridSize;
+        button.addEventListener("click", (e) => {
+            horizontalSize = window.prompt("Enter horizontal size");
+            verticalSize = window.prompt("Enter vertical size");
+            gridSize = horizontalSize * verticalSize;
+            
+            for(let i = 1; i <= 256; i++){
+                const div = document.createElement("div");
+                container.appendChild(div);
+                div.addEventListener("mouseenter", e => div.style.backgroundColor = "grey");
+            }
+        });
+
+        
         
     </script>
 </body>

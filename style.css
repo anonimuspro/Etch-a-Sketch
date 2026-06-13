@@ -1,12 +1,23 @@
+body{
+    text-align: center;
+    justify-items: center;
+}
+
 #container{
     border: solid 1px grey;
     display: flex;
     flex-wrap: wrap;
     width: 630px;
+    height: 1258px;
 }
 
 #container > div{
     border: solid 1px black;
     width: 38px;
     height: 38px;
+}
+
+button{
+    font-size: 20px;
+    padding: 5px 10px;
 }
