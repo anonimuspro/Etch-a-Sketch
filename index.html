@@ -16,12 +16,12 @@
         const body = document.querySelector("body");
         const container = document.querySelector("#container");
         const button = document.createElement("button");
-        button.textContent = "restart";
+        button.textContent = "Resize Grid";
         body.insertBefore(button, container);
 
 
         button.addEventListener("click", (e) => {
-            let numOfSquares = window.prompt("Enter the number of squares per side");
+            let numOfSquares = window.prompt("Enter the number of squares per side (maximum 100)");
             if(numOfSquares < 100 && numOfSquares > 0){
                 let gridSize = numOfSquares * numOfSquares;
                 let squareSize = `${880 / numOfSquares - 2}px`;
@@ -39,7 +39,7 @@
                 }
             }
         });
-        
+
     </script>
 </body>
 </html>
