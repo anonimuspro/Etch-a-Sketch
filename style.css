@@ -4,20 +4,21 @@ body{
 }
 
 #container{
-    border: solid 1px grey;
+    border: dotted 1px grey;
     display: flex;
     flex-wrap: wrap;
-    width: 630px;
-    height: 1258px;
+    align-items: stretch;
+    width: 880px;
+    height: 880px;
 }
 
 #container > div{
-    border: solid 1px black;
-    width: 38px;
-    height: 38px;
+    border: solid 1px gray;
+    flex: 1 1 auto;
 }
 
 button{
-    font-size: 20px;
+    font-size: 24px;
     padding: 5px 10px;
+    margin-bottom: 20px;
 }
