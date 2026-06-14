@@ -7,14 +7,12 @@ body{
     border: dotted 1px grey;
     display: flex;
     flex-wrap: wrap;
-    align-items: stretch;
     width: 880px;
     height: 880px;
 }
 
 #container > div{
     border: solid 1px gray;
-    flex: 1 1 auto;
 }
 
 button{
