@@ -33,7 +33,7 @@
         }
 
         button.addEventListener("click", () => {
-            let numOfSquares = window.prompt("Enter the number of squares per side (maximum 100)");
+            let numOfSquares = Number(window.prompt("Enter the number of squares per side (maximum 100)"));
             if(numOfSquares < 100 && numOfSquares > 0){
                 let gridSize = numOfSquares * numOfSquares;
                 let squareSize = `${880 / numOfSquares - 2}px`;
