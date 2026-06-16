@@ -34,25 +34,56 @@
             randomizeColors = true;
         });
 
+               
+        let transparentMode = false;
+        const opacityBtn = document.createElement("button");
+        opacityBtn.textContent = "Transparency: off";
+        body.insertBefore(opacityBtn, container);
+        opacityBtn.addEventListener("click", () => {
+            transparentMode = !transparentMode;
+            if(transparentMode === true){
+                opacityBtn.textContent = "Transparency: on";
+            }else{
+                opacityBtn.textContent = "Transparency: off";
+            }
+        });
+
+
         /* Default settings */
         for(let i = 0; i < 256; i++){
             const div = document.createElement("div");
             div.style.width = "50.5px";
             div.style.height = "50.5px";
             container.appendChild(div);
+            let opacity = 0;
 
             div.addEventListener("mouseenter", () => {
                 if(randomizeColors === true){
-                    let red = Math.floor(Math.random() * 255 + 1);
-                    let green = Math.floor(Math.random() * 255 + 1);
-                    let blue = Math.floor(Math.random() * 255 + 1);
-                    div.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+                    if(transparentMode === true){
+                        let red = Math.floor(Math.random() * 255 + 1);
+                        let green = Math.floor(Math.random() * 255 + 1);
+                        let blue = Math.floor(Math.random() * 255 + 1);
+                        if(opacity < 1){
+                            opacity = opacity + 0.1;
+                        }
+                        div.style.backgroundColor = `rgb(${red} ${green} ${blue} / ${opacity})`;
+                    }else{
+                        let red = Math.floor(Math.random() * 255 + 1);
+                        let green = Math.floor(Math.random() * 255 + 1);
+                        let blue = Math.floor(Math.random() * 255 + 1);
+                        div.style.backgroundColor = `rgb(${red} ${green} ${blue} / 1)`;
+                    }
                 }else{
-                    div.style.backgroundColor = "black";
+                    if(transparentMode === true){
+                        if(opacity < 1){
+                            opacity = opacity + 0.1;
+                        }
+                        div.style.background = `rgb(0 0 0 / ${opacity})`;
+                    }else{
+                        div.style.background = `rgb(0 0 0 / 1)`;
+                    }
                 }
             });
-            
-
             resizeBtn.addEventListener("click", () => {
                 container.removeChild(div);
             });
@@ -69,26 +100,41 @@
                     div.style.width = squareSize;
                     div.style.height = squareSize;
                     container.appendChild(div);
-
+                    let opacity = 0;
 
                     div.addEventListener("mouseenter", () => {
                         if(randomizeColors === true){
-                            let red = Math.floor(Math.random() * 255 + 1);
-                            let green = Math.floor(Math.random() * 255 + 1);
-                            let blue = Math.floor(Math.random() * 255 + 1);
-                            div.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+                            if(transparentMode === true){
+                                let red = Math.floor(Math.random() * 255 + 1);
+                                let green = Math.floor(Math.random() * 255 + 1);
+                                let blue = Math.floor(Math.random() * 255 + 1);
+                                if(opacity < 1){
+                                    opacity = opacity + 0.1;
+                                }
+                                div.style.backgroundColor = `rgb(${red} ${green} ${blue} / ${opacity})`;
+                            }else{
+                                let red = Math.floor(Math.random() * 255 + 1);
+                                let green = Math.floor(Math.random() * 255 + 1);
+                                let blue = Math.floor(Math.random() * 255 + 1);
+                                div.style.backgroundColor = `rgb(${red} ${green} ${blue} / 1)`;
+                            }
                         }else{
-                            div.style.backgroundColor = "black";
+                            if(transparentMode === true){
+                            if(opacity < 1){
+                                opacity = opacity + 0.1;
+                            }
+                            div.style.background = `rgb(0 0 0 / ${opacity})`;
+                            }else{
+                                div.style.background = `rgb(0 0 0 / 1)`;
+                            }
                         }
                     });
-
                     resizeBtn.addEventListener("click", () => {
                         container.removeChild(div);
                     });
                 }
             }
         });
-
     </script>
 </body>
 </html>
